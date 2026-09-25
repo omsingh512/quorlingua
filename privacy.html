@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Quor Lingua</title>
+<meta name="description" content="How Quor Lingua collects, uses, and protects your personal information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#163832;
+  --navy-deep:#051F20;
+  --navy-soft:#0B2B26;
+  --gold:#8EB69B;
+  --gold-light:#DAF1DE;
+  --paper:#EEF9F0;
+  --paper-alt:#E0F3E3;
+  --ink:#0B2B26;
+  --muted:#455C57;
+  --line:#B6D0BE;
+  --line-dark:rgba(218,241,222,0.16);
+  --white:#FFFFFF;
+  --radius-s:4px;
+  --radius-m:10px;
+  --maxw:900px;
+  --shadow:0 18px 40px -22px rgba(5,31,32,0.35);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); line-height:1.7; -webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; font-weight:600; color:var(--navy); margin:1.6em 0 0.6em; line-height:1.2; letter-spacing:-0.01em;}
+h1{margin-top:0;}
+p{margin:0 0 1em;}
+a{color:var(--navy-soft); text-decoration:underline; text-decoration-color:var(--line);}
+a:hover{color:var(--gold);}
+ul,ol{margin:0 0 1.2em; padding-left:1.3em;}
+li{margin-bottom:0.5em;}
+img{max-width:100%; display:block;}
+.container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+/* header */
+.navbar{position:sticky; top:0; z-index:200; background:rgba(238,249,240,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1180px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+.nav-brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+.nav-brand img{height:40px; width:40px; border-radius:50%;}
+.nav-brand .wordmark{font-family:'Fraunces',serif; font-size:19px; color:var(--navy); font-weight:600;}
+.back-link{font-size:14px; font-weight:600; text-decoration:none; color:var(--navy); display:inline-flex; align-items:center; gap:6px;}
+.back-link:hover{color:var(--gold);}
+
+/* legal content */
+.legal-hero{background:var(--navy-deep); color:var(--paper); padding:64px 0 44px;}
+.legal-hero .kicker{font-family:'Fraunces',serif; font-style:italic; color:var(--gold-light); font-size:14px; margin-bottom:10px; display:block;}
+.legal-hero h1{color:var(--white); margin-bottom:10px;}
+.legal-hero p{color:rgba(218,241,222,0.75); font-size:15px; margin:0;}
+.legal-body{padding:56px 0 90px;}
+.legal-body h2{font-size:22px; border-top:1px solid var(--line); padding-top:28px; margin-top:36px;}
+.legal-body h2:first-of-type{border-top:none; padding-top:0; margin-top:0;}
+.legal-body h3{font-size:17px;}
+.callout{background:var(--paper-alt); border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:var(--radius-m); padding:18px 22px; margin:18px 0;}
+.callout strong{color:var(--navy);}
+table{width:100%; border-collapse:collapse; margin:1em 0 1.4em; font-size:14.5px;}
+th,td{text-align:left; padding:10px 12px; border:1px solid var(--line);}
+th{background:var(--paper-alt); color:var(--navy); font-family:'Fraunces',serif; font-weight:600;}
+.muted{color:var(--muted); font-size:13.5px;}
+
+/* footer (matches main site) */
+footer{background:var(--navy-deep); color:rgba(218,241,222,0.75); padding:56px 0 28px; margin-top:0;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid var(--line-dark);}
+@media (max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+.footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+.footer-brand img{height:40px; width:40px; border-radius:50%;}
+.footer-brand .wordmark{font-family:'Fraunces',serif; color:var(--white); font-size:17px;}
+footer h5{font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-light); margin-bottom:16px; font-weight:600;}
+footer ul{list-style:none; padding:0; margin:0;}
+footer ul li{margin-bottom:10px; font-size:13.5px;}
+footer ul li a, footer p a{color:rgba(218,241,222,0.75); text-decoration:none;}
+footer ul li a:hover, footer p a:hover{color:var(--white);}
+.footer-bottom{padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px;}
+.footer-bottom a{color:rgba(218,241,222,0.6); text-decoration:none;}
+.footer-bottom a:hover{color:var(--white);}
+@media (max-width:780px){.legal-hero{padding:48px 0 32px;} .legal-body{padding:40px 0 64px;}}
+</style>
+
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.png" alt="Quor Lingua logo">
+      <div class="wordmark">Quor Lingua</div>
+    </a>
+    <a href="index.html" class="back-link">&larr; Back to home</a>
+  </div>
+</header>
+<section class="legal-hero">
+  <div class="container">
+    <span class="kicker">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: 16 September 2026</p>
+  </div>
+</section>
+<section class="legal-body">
+  <div class="container">
+
+<h2>1. Introduction</h2>
+<p>Quor Lingua ("we", "us", "our") operates this website and delivers live online foreign language classes. This Privacy Policy explains what personal information we collect, how we use it, and the choices you have. By using our website or enrolling in our courses, you agree to the practices described here.</p>
+
+<h2>2. Information We Collect</h2>
+<ul>
+  <li><strong>Contact details</strong> — name, email address, phone number/WhatsApp number, and city, collected when you book a free counselling session, fill an enquiry form, or enrol in a batch.</li>
+  <li><strong>Enrolment &amp; payment information</strong> — course/language chosen, batch timing, and payment/transaction details (processed via our payment partner or UPI; we do not store your full card or UPI PIN details on our own servers).</li>
+  <li><strong>Class participation data</strong> — attendance, assignment submissions, and progress notes shared by your tutor, used to track your learning journey.</li>
+  <li><strong>Communications</strong> — messages you send us via WhatsApp, email, Instagram, or the contact form.</li>
+  <li><strong>Technical data</strong> — browser type, device information, and pages visited, collected automatically for site performance and security.</li>
+</ul>
+
+<h2>3. How We Use Your Information</h2>
+<ul>
+  <li>To schedule and conduct your counselling call and live classes.</li>
+  <li>To process enrolment, payments, and issue receipts or certificates.</li>
+  <li>To send batch reminders, class links, study material, and important updates over email/WhatsApp.</li>
+  <li>To respond to queries and provide learner support.</li>
+  <li>To improve our courses, website, and teaching quality.</li>
+  <li>To meet legal, tax, and regulatory requirements.</li>
+</ul>
+
+<h2>4. Sharing of Information</h2>
+<p>We do not sell your personal information. We may share limited data with:</p>
+<ul>
+  <li>Payment gateways/UPI apps, solely to process fees and refunds.</li>
+  <li>Video-conferencing platforms (such as Zoom or Google Meet), solely to host your live classes.</li>
+  <li>Our tutors and academic team, solely to support your learning.</li>
+  <li>Government or regulatory authorities, where required by law.</li>
+</ul>
+
+<h2>5. Data Security</h2>
+<p>We use reasonable administrative and technical safeguards to protect your data. However, no method of transmission or storage over the internet is completely secure, and we cannot guarantee absolute security.</p>
+
+<h2>6. Data Retention</h2>
+<p>We retain your personal information for as long as necessary to provide our services, maintain academic records, and comply with legal or accounting obligations, after which it is deleted or anonymised.</p>
+
+<h2>7. Your Rights</h2>
+<p>You may request access to, correction of, or deletion of your personal information by writing to us at <a href="mailto:hello@quorlingua.com">hello@quorlingua.com</a>. You may also unsubscribe from promotional messages at any time.</p>
+
+<h2>8. Cookies</h2>
+<p>Our website may use basic cookies to remember your preferences and understand site usage. You can disable cookies through your browser settings; this may affect some site functionality.</p>
+
+<h2>9. Children's Privacy</h2>
+<p>If a learner is a minor, enrolment and related communication must be handled by a parent or guardian, who is responsible for the accuracy of the information provided.</p>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the latest revision. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
+
+<h2>11. Contact Us</h2>
+<p>For any privacy-related questions, reach us at <a href="mailto:hello@quorlingua.com">hello@quorlingua.com</a> or <a href="tel:+918709192073">+91 87091 92073</a>.</p>
+
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="logo.png" alt="Quor Lingua logo">
+          <div class="wordmark">Quor Lingua</div>
+        </div>
+        <p style="font-size:13.5px; max-width:280px;">An online foreign language institute teaching German, French, Spanish, Italian, Japanese, Korean and Mandarin from A1 to C2.</p>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.instagram.com/quorlingua_" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:hello@quorlingua.com">hello@quorlingua.com</a></li>
+          <li><a href="tel:+918709192073">+91 87091 92073</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Quor Lingua. All rights reserved.</span>
+      <span>
+        <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+        <a href="terms.html">Terms &amp; Conditions</a> &nbsp;&middot;&nbsp;
+        <a href="refund.html">Refund Policy</a> &nbsp;&middot;&nbsp;
+        <a href="disclaimer.html">Disclaimer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
