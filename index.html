@@ -99,17 +99,21 @@ button{font-family:inherit; cursor:pointer;}
   padding:16px 30px 16px 26px;
   border-radius:40px;
   font-size:14.5px; letter-spacing:0.05em; text-transform:uppercase;
-  box-shadow:0 12px 28px -12px rgba(142,182,155,0.55);
-  transition:transform .25s ease, box-shadow .25s ease;
+  color:#fff !important;
+  background:linear-gradient(100deg,#E4572E 0%,#F3A712 20%,#2E9E6C 40%,#2E86AB 60%,#A23B72 80%,#E4572E 100%);
+  background-size:260% 100%;
+  background-position:0% 0;
+  box-shadow:0 14px 30px -12px rgba(46,86,171,0.5);
+  transition:transform .25s ease, box-shadow .25s ease, background-position .7s ease;
 }
 .btn-explore .arrow{display:inline-flex; transition:transform .3s ease;}
 .btn-explore::before{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.55) 45%, transparent 90%);
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 45%, transparent 90%);
   transform:translateX(-120%);
   transition:transform .6s ease;
 }
-.btn-explore:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 18px 34px -14px rgba(142,182,155,0.7);}
+.btn-explore:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 18px 36px -14px rgba(46,86,171,0.65); background-position:100% 0;}
 .btn-explore:hover::before{transform:translateX(120%);}
 .btn-explore:hover .arrow{transform:translateX(5px);}
 .btn-explore:active{transform:translateY(0) scale(0.99);}
@@ -125,15 +129,15 @@ button{font-family:inherit; cursor:pointer;}
   max-width:var(--maxw); margin:0 auto; padding:0 24px;
   height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px;
 }
-.nav-brand{display:flex; align-items:center; gap:12px;}
+.nav-brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
 .nav-brand img{height:48px; width:48px; border-radius:50%; object-fit:cover;}
-.nav-brand .wordmark{font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy); line-height:1.1;}
+.nav-brand .wordmark{font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy); line-height:1.1; white-space:nowrap;}
 .nav-brand .wordmark span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:0.16em; color:var(--gold); margin-top:2px;}
-.nav-links{display:flex; align-items:center; gap:30px;}
-.nav-links a{font-size:14.5px; font-weight:500; color:var(--ink); position:relative; padding:6px 0;}
+.nav-links{display:flex; align-items:center; gap:30px; flex-shrink:1; min-width:0;}
+.nav-links a{font-size:14.5px; font-weight:500; color:var(--ink); position:relative; padding:6px 0; white-space:nowrap;}
 .nav-links a::after{content:"";position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .2s ease; transform-origin:left;}
 .nav-links a:hover::after{transform:scaleX(1);}
-.nav-cta{display:flex; align-items:center; gap:14px;}
+.nav-cta{display:flex; align-items:center; gap:14px; flex-shrink:0;}
 .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;}
 .hamburger span{width:24px; height:2px; background:var(--navy); display:block; transition:transform .25s ease, opacity .25s ease;}
 .mobile-overlay{
@@ -242,8 +246,16 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .level-track{display:grid; grid-template-columns:repeat(6,1fr); gap:16px;}
 @media (max-width:980px){.level-track{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:560px){.level-track{grid-template-columns:1fr;}}
-.level-card{background:var(--white); border:1px solid var(--line); padding:24px 20px; border-radius:var(--radius-s); position:relative;}
-.level-card .lv-code{font-family:'Fraunces',serif; font-size:30px; color:var(--gold); font-weight:600;}
+.level-card{
+  background:var(--white); border:1px solid var(--line); padding:28px 20px 22px; border-radius:var(--radius-m);
+  position:relative; overflow:hidden;
+  opacity:0; transform:translateY(22px);
+  transition:transform .45s ease, box-shadow .35s ease, border-color .35s ease, opacity .5s ease;
+}
+.level-card::before{content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--accent, var(--gold));}
+.level-card.card-in{opacity:1; transform:translateY(0);}
+.level-card:hover{transform:translateY(-8px) scale(1.02); box-shadow:0 20px 36px -18px var(--accent, var(--gold)); border-color:var(--accent, var(--gold));}
+.level-card .lv-code{font-family:'Fraunces',serif; font-size:30px; color:var(--accent, var(--gold)); font-weight:600; transition:color .3s ease;}
 .level-card h4{font-size:15.5px; margin:8px 0 8px; color:var(--navy);}
 .level-card p{font-size:13.3px; color:var(--muted); margin-bottom:10px;}
 .level-card .dur{font-size:12px; font-weight:600; color:var(--navy); background:var(--paper-alt); display:inline-block; padding:4px 8px; border-radius:2px;}
@@ -257,6 +269,11 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .selector-box{
   background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
   padding:32px; box-shadow:var(--shadow);
+  position:relative; overflow:hidden;
+}
+.selector-box::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(100deg,#E4572E,#F3A712,#2E9E6C,#2E86AB,#7B4B94);
 }
 .selector-steps{display:flex; gap:10px; margin-bottom:26px; flex-wrap:wrap;}
 .selector-steps .step{font-size:12.5px; font-weight:600; color:var(--muted); display:flex; align-items:center; gap:8px;}
@@ -272,15 +289,11 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1l6 6 6-6' stroke='%23163832' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   background-repeat:no-repeat; background-position:right 14px center;
 }
-.result-card{border-top:1px solid var(--line); padding-top:24px; display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center;}
+.result-card{border-top:1px solid var(--line); padding-top:24px; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center;}
 @media (max-width:700px){.result-card{grid-template-columns:1fr; text-align:left;}}
 .result-flag{font-size:44px;}
 .result-info h4{font-size:20px; margin-bottom:6px;}
 .result-info .meta{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--muted);}
-.result-price{text-align:right;}
-.result-price .fee{font-family:'Fraunces',serif; font-size:26px; color:var(--navy); font-weight:600;}
-.result-price .tag{font-size:11.5px; color:var(--muted); margin-bottom:4px;}
-@media (max-width:700px){.result-price{text-align:left;}}
 
 /* ---------- BATCHES ---------- */
 .batch-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -397,7 +410,13 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .form-field label{font-size:12.5px; font-weight:600; color:var(--navy);}
 .form-field input, .form-field select, .form-field textarea{
   padding:13px 14px; border:1.5px solid var(--line); border-radius:var(--radius-s);
-  font-family:inherit; font-size:14.5px; background:var(--white); color:var(--ink);
+  font-family:inherit; font-size:14.5px; background:var(--paper); color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.form-field input:hover, .form-field select:hover, .form-field textarea:hover{border-color:#2E86AB;}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus{
+  outline:none; border-color:#2E86AB; background:var(--white);
+  box-shadow:0 0 0 4px rgba(46,134,171,0.14);
 }
 .form-field textarea{resize:vertical; min-height:90px;}
 .form-note{font-size:12px; color:var(--muted); margin-top:14px;}
@@ -625,9 +644,9 @@ footer ul li a:hover{color:var(--white);}
 <section class="section" id="courses">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">Courses &amp; pricing</div>
+      <div class="kicker">Courses</div>
       <h2>Find your course in two steps</h2>
-      <p>Pick a language, then a level — we'll show you the duration, mode and fee right away.</p>
+      <p>Pick a language, then a level — we'll show you the duration and mode right away.</p>
     </div>
     <div class="selector-box">
       <div class="selector-steps">
@@ -779,6 +798,15 @@ footer ul li a:hover{color:var(--white);}
         <div class="kicker">Not sure where to start</div>
         <h2>Not sure which language is right for you?</h2>
         <p style="color:var(--muted); font-size:15.5px;">Tell us a little about your goals — study abroad, a job, an exam, or simply curiosity — and we'll suggest the right language, level and batch for you. No cost, no obligation.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:28px;">
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇩🇪</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇫🇷</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇪🇸</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇮🇹</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇯🇵</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇰🇷</span>
+          <span style="font-size:26px; padding:10px 12px; background:var(--white); border:1px solid var(--line); border-radius:50%; box-shadow:var(--shadow);">🇨🇳</span>
+        </div>
       </div>
       <div>
         <form class="selector-box" id="counselForm">
@@ -804,7 +832,7 @@ footer ul li a:hover{color:var(--white);}
             </div>
             <div class="form-field full"><label for="cMsg">Message</label><textarea id="cMsg" placeholder="Tell us about your goal — study abroad, job, exam, travel..."></textarea></div>
           </div>
-          <button type="submit" class="btn btn-gold btn-block">Get Free Counselling</button>
+          <button type="submit" class="btn btn-explore btn-block">Get Free Counselling</button>
           <p class="form-note">Submitting opens WhatsApp with your details pre-filled — just hit send there to reach our team directly.</p>
           <div id="formConfirm">Opening WhatsApp with your enquiry filled in — just tap send to reach our team. If it didn't open, message us directly at +91 87091 92073.</div>
         </form>
@@ -968,7 +996,7 @@ const testimonials = [
   {name:"Archi kumari", tag:"French, A2 batch", quote:"Classes are small enough that everyone actually gets to speak. That was missing everywhere else I tried."},
   {name:"Rajesh Saw", tag:"Japanese, Working professional", quote:"I needed a batch that worked around my job — the evening schedule made it possible to stay consistent."},
   {name:"Shlok Kathihar", tag:"Spanish, Study abroad aspirant", quote:"The structured material made revising before my application deadline far less stressful."},
-  {name:"Ankita Mahopatra", tag:"Italian, A1 batch", quote:"As a complete beginner I was nervous, but the pace made the first few weeks easy to keep up with."},
+  {name:"Ankita mahopatra", tag:"Italian, A1 batch", quote:"As a complete beginner I was nervous, but the pace made the first few weeks easy to keep up with."},
   {name:"Simran Kaur", tag:"Korean, Travel learner", quote:"I only needed conversational basics for a trip, and the short-format guidance was exactly right."},
 ];
 
@@ -1021,12 +1049,19 @@ langGrid.addEventListener('click', e=>{
 
 /* ---------------- RENDER: LEVEL TRACK ---------------- */
 const levelTrack = document.getElementById('levelTrack');
-levels.forEach(lv=>{
+const levelPalette = ['#E4572E','#F3A712','#2E9E6C','#2E86AB','#7B4B94','#163832'];
+levels.forEach((lv,i)=>{
   const el = document.createElement('div');
   el.className='level-card';
+  el.style.setProperty('--accent', levelPalette[i % levelPalette.length]);
+  el.style.transitionDelay = (i*80)+'ms';
   el.innerHTML = `<div class="lv-code">${lv.code}</div><h4>${lv.name}</h4><p>${lv.desc}</p><span class="dur">${lv.dur}</span>`;
   levelTrack.appendChild(el);
 });
+const levelIO = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('card-in'); levelIO.unobserve(en.target);} });
+},{threshold:0.15});
+document.querySelectorAll('.level-card').forEach(el=>levelIO.observe(el));
 
 /* ---------------- COURSE SELECTOR ---------------- */
 const selLang = document.getElementById('selLang');
@@ -1037,12 +1072,10 @@ levels.forEach(lv=>selLevel.add(new Option(`${lv.code} — ${lv.name}`, lv.code)
 function renderCourseResult(){
   const lang = languages.find(l=>l.code===selLang.value);
   const lvl = levels.find(l=>l.code===selLevel.value);
-  const fee = feeForLevel(lang.from, lvl.code);
   const waText = encodeURIComponent(
     `Hi Quor Lingua, I'd like to enquire about this course:\n`+
     `Language: ${lang.name} (${lvl.code} — ${lvl.name})\n`+
-    `Duration: ${lvl.dur}\n`+
-    `Fee: ₹${fee.toLocaleString('en-IN')}`
+    `Duration: ${lvl.dur}`
   );
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
   document.getElementById('courseResult').innerHTML = `
@@ -1055,11 +1088,7 @@ function renderCourseResult(){
         <span>Mode: <strong>Online</strong></span>
         <span>Level: <strong>${lvl.code}</strong></span>
       </div>
-    </div>
-    <div class="result-price">
-      <div class="tag">Course fee</div>
-      <div class="fee">₹${fee.toLocaleString('en-IN')}</div>
-      <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="margin-top:12px;">Enquire Now</a>
+      <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="margin-top:14px;">Enquire Now</a>
     </div>
   `;
 }
