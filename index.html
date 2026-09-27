@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quor Lingua — Online Foreign Language Institute</title>
+<title>QuorLingua — Online Foreign Language Institute</title>
 <meta name="description" content="Quor Lingua is an online foreign language institute offering CEFR-based courses in German, French, Spanish, Italian, Japanese, Korean and Mandarin, from A1 to C2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,6 +93,26 @@ button{font-family:inherit; cursor:pointer;}
 .btn-navy:hover{background:var(--navy-soft);}
 .btn-block{width:100%;}
 .btn-sm{padding:10px 18px; font-size:13.5px;}
+
+.btn-explore{
+  position:relative; overflow:hidden;
+  padding:16px 30px 16px 26px;
+  border-radius:40px;
+  font-size:14.5px; letter-spacing:0.05em; text-transform:uppercase;
+  box-shadow:0 12px 28px -12px rgba(142,182,155,0.55);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn-explore .arrow{display:inline-flex; transition:transform .3s ease;}
+.btn-explore::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.55) 45%, transparent 90%);
+  transform:translateX(-120%);
+  transition:transform .6s ease;
+}
+.btn-explore:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 18px 34px -14px rgba(142,182,155,0.7);}
+.btn-explore:hover::before{transform:translateX(120%);}
+.btn-explore:hover .arrow{transform:translateX(5px);}
+.btn-explore:active{transform:translateY(0) scale(0.99);}
 
 /* ---------- NAVBAR ---------- */
 .navbar{
@@ -430,8 +450,8 @@ footer ul li a:hover{color:var(--white);}
 <header class="navbar">
   <div class="nav-inner">
     <a href="#home" class="nav-brand">
-      <img src="logo.png" alt="Quor Lingua logo">
-      <div class="wordmark">Quor Lingua</div>
+      <img src="logo.png" alt="QuorLingua logo">
+      <div class="wordmark">QuorLingua</div>
     </a>
     <nav class="nav-links">
       <a href="#home">Home</a>
@@ -452,27 +472,27 @@ footer ul li a:hover{color:var(--white);}
       </button>
     </div>
   </div>
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-panel" id="mobilePanel">
-    <div class="mobile-panel-head">
-      <span class="wordmark">Quor Lingua</span>
-      <button class="mobile-close" id="mobileClose" aria-label="Close menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <a href="#home">Home</a>
-    <a href="#languages">Languages</a>
-    <a href="#courses">Courses</a>
-    <a href="#batches">Batches</a>
-    <a href="#faculty">Faculty</a>
-    <a href="#results">Results</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#about">About</a>
-    <a href="#faqs">FAQs</a>
-    <a href="#contact">Contact</a>
-    <a href="#counselling" class="btn btn-gold btn-block">Book Free Counselling</a>
-  </div>
 </header>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-head">
+    <span class="wordmark">QuorLingua</span>
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <a href="#home">Home</a>
+  <a href="#languages">Languages</a>
+  <a href="#courses">Courses</a>
+  <a href="#batches">Batches</a>
+  <a href="#faculty">Faculty</a>
+  <a href="#results">Results</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#about">About</a>
+  <a href="#faqs">FAQs</a>
+  <a href="#contact">Contact</a>
+  <a href="#counselling" class="btn btn-gold btn-block">Book Free Counselling</a>
+</div>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
@@ -482,7 +502,7 @@ footer ul li a:hover{color:var(--white);}
       <h1>Your world gets bigger with every <em>new language</em> you speak.</h1>
       <p class="lead">Quor Lingua is an online institute for serious language learners — structured A1–C2 courses, real conversation practice, and guidance built around where you actually want to go: a university abroad, a new job, or your next trip.</p>
       <div class="hero-ctas">
-        <a href="#languages" class="btn btn-gold">Explore Languages</a>
+        <a href="#languages" class="btn btn-gold btn-explore">Explore Languages <span class="arrow">→</span></a>
         <a href="#counselling" class="btn btn-outline-light">Book Free Counselling</a>
       </div>
       <div class="hero-stats">
@@ -683,11 +703,11 @@ footer ul li a:hover{color:var(--white);}
   <div class="container">
     <div class="section-head center">
       <div class="kicker">Student outcomes</div>
-      <h2>Results our students are working toward</h2>
-      <p>Sample figures shown for illustration while we compile our first verified batch results.</p>
+      <h2>Our results, in numbers</h2>
+      <p>Replace the figures below with your own verified numbers — students trained, batches completed, completion rate, average rating, or anything else you can back up.</p>
     </div>
     <div class="results-grid" id="resultsGrid"></div>
-    <p class="disclaimer">These are placeholder figures for design purposes only and are not verified student statistics. Replace with real, verified results once available.</p>
+    <p class="disclaimer">Template only — swap in your real, verifiable figures before publishing.</p>
   </div>
 </section>
 
@@ -824,7 +844,7 @@ footer ul li a:hover{color:var(--white);}
     <div class="kicker" style="color:var(--gold-light)">Start today</div>
     <h2>Ready to speak a new language?</h2>
     <div class="ctas">
-      <a href="#languages" class="btn btn-gold">Explore Languages</a>
+      <a href="#languages" class="btn btn-gold btn-explore">Explore Languages <span class="arrow">→</span></a>
       <a href="#counselling" class="btn btn-outline-light">Book Free Counselling</a>
     </div>
   </div>
@@ -836,8 +856,8 @@ footer ul li a:hover{color:var(--white);}
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="logo.png" alt="Quor Lingua logo">
-          <div class="wordmark">Quor Lingua</div>
+          <img src="logo.png" alt="QuorLingua logo">
+          <div class="wordmark">QuorLingua</div>
         </div>
         <p style="font-size:13.8px; max-width:280px;">An online foreign language institute teaching German, French, Spanish, Italian, Japanese, Korean and Mandarin from A1 to C2.</p>
       </div>
@@ -868,7 +888,7 @@ footer ul li a:hover{color:var(--white);}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Quor Lingua. All rights reserved.</span>
+      <span>© 2025 QuorLingua. All rights reserved.</span>
       <span>
         <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp;
@@ -937,10 +957,10 @@ const journey = [
 ];
 
 const resultStats = [
-  {big:"CEFR", cap:"Aligned assessment at every level"},
-  {big:"Live", cap:"Classes with real-time feedback"},
-  {big:"Sample", cap:"Placeholder completion rate — 90%*"},
-  {big:"Sample", cap:"Placeholder satisfaction score — 4.8/5*"},
+  {big:"[Add number]", cap:"[e.g. students trained]"},
+  {big:"[Add number]", cap:"[e.g. batches completed]"},
+  {big:"[Add %]", cap:"[e.g. course completion rate]"},
+  {big:"[Add score]", cap:"[e.g. average student rating]"},
 ];
 
 const testimonials = [
@@ -988,7 +1008,6 @@ languages.forEach(l=>{
     <h3>${l.name}</h3>
     <p class="desc">${l.desc}</p>
     <div class="lang-levels">${levels.map(lv=>`<span>${lv.code}</span>`).join('')}</div>
-    <div class="price-row"><span class="from">Starting from</span><span class="amt">₹${l.from.toLocaleString('en-IN')}</span></div>
     <a href="#courses" class="explore" data-lang="${l.code}">Explore Course</a>
   `;
   langGrid.appendChild(el);
@@ -1066,8 +1085,7 @@ sampleBatches.forEach(b=>{
     `Language: ${b.lang} (${b.level})\n`+
     `Start Date: ${b.start}\n`+
     `Days: ${b.days}\n`+
-    `Time: ${b.time}\n`+
-    `Fee: ₹${b.fee.toLocaleString('en-IN')}`
+    `Time: ${b.time}`
   );
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
   el.innerHTML = `
@@ -1078,7 +1096,6 @@ sampleBatches.forEach(b=>{
       <div class="batch-row"><span class="k">Time</span><span class="v">${b.time}</span></div>
       <div class="batch-row"><span class="k">Mode</span><span class="v">Online</span></div>
       <div class="batch-row"><span class="k">Duration</span><span class="v">${b.dur}</span></div>
-      <div class="batch-row"><span class="k">Fee</span><span class="v">₹${b.fee.toLocaleString('en-IN')}</span></div>
       <div class="seats">${b.seats}</div>
     </div>
     <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-navy">Reserve Your Seat</a>
