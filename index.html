@@ -7,6 +7,7 @@
 <meta name="description" content="Quor Lingua is an online foreign language institute offering CEFR-based courses in German, French, Spanish, Italian, Japanese, Korean and Mandarin, from A1 to C2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -15,6 +16,7 @@
   --navy-soft:#0B2B26;
   --gold:#8EB69B;
   --gold-light:#DAF1DE;
+  --gold-text:#2B6747; /* darker green for text on light backgrounds (5.7:1+) */
   --paper:#EEF9F0;
   --paper-alt:#E0F3E3;
   --ink:#0B2B26;
@@ -77,10 +79,11 @@ button{font-family:inherit; cursor:pointer;}
   font-family:'Fraunces',serif;
   font-style:italic;
   font-size:15px;
-  color:var(--gold);
+  color:var(--gold-text);
   margin:0 0 10px;
   font-weight:500;
 }
+.section-navy .kicker, .final-cta .kicker{color:var(--gold-light);}
 .section-head{max-width:640px; margin:0 0 52px;}
 .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
 .section-head h2{font-size:clamp(28px,3.4vw,40px);}
@@ -148,7 +151,7 @@ html{scroll-padding-top:84px;}
 .nav-brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
 .nav-brand img{height:48px; width:48px; border-radius:50%; object-fit:cover;}
 .nav-brand .wordmark{font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy); line-height:1.1; white-space:nowrap;}
-.nav-brand .wordmark span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:0.16em; color:var(--gold); margin-top:2px;}
+.nav-brand .wordmark span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:0.16em; color:var(--gold-text); margin-top:2px;}
 .nav-links{display:flex; align-items:center; gap:20px; flex-shrink:1; min-width:0;}
 .nav-links a{font-size:14px; font-weight:500; color:var(--ink); position:relative; padding:6px 0; white-space:nowrap;}
 .nav-links a::after{content:"";position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .2s ease; transform-origin:left;}
@@ -275,12 +278,10 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 @media (max-width:980px){
   .hero .container{grid-template-columns:1fr; text-align:left;}
   /* keep the language chips + tags visible on tablet/phone, placed inside the card so nothing gets clipped */
+  /* globe on top (as before); chips + tags sit in a row under the globe so they never overlap the badge */
   .hero-visual{order:-1; width:100%; max-width:340px; margin:0 auto 20px; flex-wrap:wrap; justify-content:center; gap:10px;}
-  .lang-chip{display:flex; font-size:13px; padding:7px 12px; gap:7px;}
-  .chip-1{top:5%; left:4%; right:auto; bottom:auto;}
-  .chip-2{top:5%; right:4%; left:auto; bottom:auto;}
-  .chip-3{top:64%; left:4%; right:auto; bottom:auto;}
-  .chip-4{top:64%; right:4%; left:auto; bottom:auto;}
+  .globe-wrap{flex:0 0 100%;}
+  .lang-chip{position:static; display:flex; font-size:13px; padding:7px 12px; gap:7px;}
   .hero-visual .float-tag{display:flex; position:static; transform:none; font-size:12px; padding:8px 12px; white-space:nowrap;}
   .globe-badge{font-size:10.5px; padding:7px 12px;}
 }
@@ -411,7 +412,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .batch-row:last-of-type{border-bottom:none;}
 .batch-row .k{color:var(--muted);}
 .batch-row .v{font-weight:600; color:var(--ink);}
-.batch-card .seats{font-size:12px; color:var(--gold); font-weight:700; margin:12px 0 14px;}
+.batch-card .seats{font-size:12px; color:var(--gold-text); font-weight:700; margin:12px 0 14px;}
 .batch-card .btn{margin:0 20px 20px; width:calc(100% - 40px);}
 
 /* ---------- FACULTY ---------- */
@@ -426,7 +427,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .faculty-photo .initial{font-family:'Fraunces',serif; font-size:56px; color:var(--gold-light); border:1.5px solid rgba(217,184,114,0.5); width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
 .faculty-info{padding:22px;}
 .faculty-info h4{font-size:18px; margin-bottom:2px;}
-.faculty-info .role{font-size:13px; color:var(--gold); font-weight:600; margin-bottom:12px;}
+.faculty-info .role{font-size:13px; color:var(--gold-text); font-weight:600; margin-bottom:12px;}
 .faculty-info .fact{font-size:13px; color:var(--muted); display:flex; justify-content:space-between; padding:6px 0; border-top:1px dashed var(--line);}
 
 /* ---------- WHY / FEATURES ---------- */
@@ -466,7 +467,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .result-stat.counted{border-color:var(--gold);}
 .result-stat.in:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
 .result-stat .big{position:relative; display:flex; justify-content:center; align-items:flex-start; font-family:'Fraunces',serif; font-size:44px; line-height:1.1; color:var(--navy); font-weight:600; font-variant-numeric:tabular-nums;}
-.result-stat .suffix{color:var(--gold); filter:brightness(.8);}
+.result-stat .suffix{color:var(--gold-text);}
 .result-stat .star{font-size:.55em; margin-left:4px; color:#D8A93C; display:inline-block; vertical-align:middle;}
 .result-stat.counted .big{animation:statPop .55s cubic-bezier(.3,1.6,.5,1);}
 .result-stat.counted .star{animation:starSpin .9s ease-out;}
@@ -570,6 +571,9 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 }
 .form-field textarea{resize:vertical; min-height:90px;}
 .form-note{font-size:12px; color:var(--muted); margin-top:14px;}
+.form-field .consent-label{flex-direction:row; align-items:flex-start; display:flex; gap:10px; font-weight:500; font-size:13px; line-height:1.5; color:var(--ink); cursor:pointer;}
+.form-field .consent-label input{width:18px; height:18px; flex:0 0 18px; margin:2px 0 0; padding:0; accent-color:var(--navy);}
+.form-field .consent-label a{color:var(--navy); text-decoration:underline; text-underline-offset:2px;}
 #formConfirm{display:none; background:var(--paper-alt); border-left:3px solid var(--gold); padding:14px 16px; font-size:13.5px; margin-top:16px; color:var(--navy);}
 
 /* ---------- CONTACT ---------- */
@@ -580,7 +584,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
   border:1px solid rgba(255,255,255,0.15); padding:26px; border-radius:var(--radius-s);
   box-shadow:0 10px 28px -22px rgba(5,31,32,0.3);
 }
-.contact-card .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:700; margin-bottom:10px;}
+.contact-card .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-text); font-weight:700; margin-bottom:10px;}
 .contact-card .val{font-family:'Fraunces',serif; font-size:19px; color:var(--navy);}
 
 /* ---------- FINAL CTA ---------- */
@@ -604,6 +608,7 @@ footer ul li a:hover{color:var(--white);}
 .footer-bottom a:hover{color:var(--white);}
 
 /* ---------- WHATSAPP FLOAT ---------- */
+@media (max-width:620px){.wa-float{width:50px; height:50px; bottom:16px; right:14px;} .wa-float svg{width:26px; height:26px;}}
 .wa-float{
   position:fixed; bottom:24px; right:24px; z-index:150;
   width:58px; height:58px; border-radius:50%; background:#1EAD5B;
@@ -775,7 +780,7 @@ footer ul li a:hover{color:var(--white);}
     <div class="section-head center">
       <div class="kicker">Enrol now</div>
       <h2>Upcoming batches</h2>
-      <p>Sample placeholder batches — seats and dates are updated regularly, so confirm the latest schedule during your counselling call.</p>
+      <p>Seats are limited in every batch. Reserve yours below, and we'll confirm the final schedule on WhatsApp.</p>
     </div>
     <div class="batch-grid" id="batchGrid"></div>
   </div>
@@ -833,7 +838,7 @@ footer ul li a:hover{color:var(--white);}
     <div class="section-head center">
       <div class="kicker">Reviews</div>
       <h2>What students say</h2>
-      <p>Sample testimonials for layout purposes — swap in real student reviews and photos.</p>
+      <p>Honest feedback from students across our German, French, Spanish, Italian, Japanese and Korean batches.</p>
     </div>
     <div class="testi-grid" id="testiGrid"></div>
   </div>
@@ -911,7 +916,7 @@ footer ul li a:hover{color:var(--white);}
         <form class="selector-box" id="counselForm">
           <div class="form-grid">
             <div class="form-field"><label for="cName">Name</label><input id="cName" type="text" required placeholder="Your full name"></div>
-            <div class="form-field"><label for="cPhone">Phone</label><input id="cPhone" type="tel" required placeholder="10-digit mobile number"></div>
+            <div class="form-field"><label for="cPhone">Phone</label><input id="cPhone" type="tel" inputmode="numeric" autocomplete="tel-national" required pattern="[0-9]{10}" title="Enter a 10-digit mobile number (digits only)" placeholder="10-digit mobile number"></div>
             <div class="form-field"><label for="cEmail">Email</label><input id="cEmail" type="email" required placeholder="you@example.com"></div>
             <div class="form-field"><label for="cLang">Language interested in</label>
               <select id="cLang"></select>
@@ -930,6 +935,7 @@ footer ul li a:hover{color:var(--white);}
               <select id="cBatch"><option>Weekday mornings</option><option>Weekday evenings</option><option>Weekend batch</option><option>No preference</option></select>
             </div>
             <div class="form-field full"><label for="cMsg">Message</label><textarea id="cMsg" placeholder="Tell us about your goal — study abroad, job, exam, travel..."></textarea></div>
+            <div class="form-field full"><label class="consent-label" for="cConsent"><input id="cConsent" type="checkbox" required><span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and allow Quor Lingua to contact me by phone, email or WhatsApp about my enquiry.</span></label></div>
           </div>
           <button type="submit" class="btn btn-explore btn-block">Get Free Counselling</button>
           <p class="form-note">Submitting opens WhatsApp with your details pre-filled — just hit send there to reach our team directly.</p>
@@ -1010,12 +1016,13 @@ footer ul li a:hover{color:var(--white);}
           <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
           <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="mailto:hello@quorlingua.com">hello@quorlingua.com</a></li>
-          <li><a href="tel:+917878256441">+91 78782 56441</a></li>
+          <li><a href="tel:+917878256441">Call +91 78782 56441</a></li>
+          <li><a href="https://wa.me/918709192073" target="_blank" rel="noopener">WhatsApp +91 87091 92073</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 QuorLingua. All rights reserved.</span>
+      <span>© 2026 QuorLingua. All rights reserved.</span>
       <span>
         <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp;
@@ -1030,7 +1037,7 @@ footer ul li a:hover{color:var(--white);}
   <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2zm5.8 14.1c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.27.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.2 1.37.27.14.43.12.59-.07.16-.19.68-.8.86-1.07.18-.27.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.44.2.51.32.07.12.07.65-.17 1.33z"/></svg>
 </a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 /* ---------------- CONFIG ---------------- */
 const WHATSAPP_NUMBER = "918709192073"; // Quor Lingua WhatsApp number, no + or spaces
@@ -1116,7 +1123,7 @@ const faqs = [
   {q:"What do the A1–C2 levels mean?", a:"These are the six levels of the CEFR (Common European Framework of Reference), the internationally recognised standard for describing language ability, from A1 (beginner) to C2 (mastery)."},
   {q:"I've never studied a language before — can I still join?", a:"Yes. Most students start at A1 with no prior experience. Our free counselling call will confirm the right starting point for you."},
   {q:"How long does each course take?", a:"Most levels run for 6–12 weeks depending on the level and language, with two to three live classes per week."},
-  {q:"What are the fees?", a:"Course fees generally range from ₹5,000 to ₹10,000 per level depending on the language and level. Use the course selector above for an exact estimate."},
+  {q:"What are the fees?", a:"Course fees generally range from ₹5,000 to ₹10,000 per level depending on the language and level."},
   {q:"Are classes online or offline?", a:"All Quor Lingua classes are conducted live online, so you can join from anywhere."},
   {q:"How are batches scheduled?", a:"We run weekday morning, weekday evening and weekend batches. Check the Upcoming Batches section or ask during counselling for the current schedule."},
   {q:"Can I attend a demo class before enrolling?", a:"Yes, a trial or demo class can be arranged as part of your free counselling session — just ask when you book."},
@@ -1408,6 +1415,9 @@ languages.forEach(l=>{
   footerLangs.appendChild(li);
 });
 
+/* phone field: digits only, max 10 */
+document.getElementById('cPhone').addEventListener('input', function(){ this.value = this.value.replace(/\D/g,'').slice(0,10); });
+
 /* ---------------- FORM SUBMIT -> WHATSAPP HANDOFF ---------------- */
 document.getElementById('counselForm').addEventListener('submit', function(e){
   e.preventDefault();
@@ -1494,7 +1504,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 <!-- ============ HERO 3D GLOBE ============ -->
 <script>
-(function(){
+/* deferred three.js has executed by DOMContentLoaded, so the globe starts after first paint */
+window.addEventListener('DOMContentLoaded', function(){
   const canvas = document.getElementById('heroGlobe');
   if(!canvas || typeof THREE === 'undefined') return;
   const wrap = canvas.parentElement;
@@ -1632,7 +1643,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     renderer.render(scene, camera);
   }
   animate();
-})();
+});
 </script>
 
 <!-- ============ PRONUNCIATION CHIPS (Web Speech API) ============ -->
