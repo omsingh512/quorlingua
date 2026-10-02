@@ -419,9 +419,10 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 @media (max-width:900px){.faculty-grid{grid-template-columns:1fr; max-width:380px; margin:0 auto;}}
 .faculty-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden; text-align:center;}
 .faculty-photo{
-  height:220px; background:linear-gradient(160deg,var(--navy),var(--navy-soft));
+  aspect-ratio:1/1; overflow:hidden; background:linear-gradient(160deg,var(--navy),var(--navy-soft));
   display:flex; align-items:center; justify-content:center;
 }
+.faculty-photo img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block;}
 .faculty-photo .initial{font-family:'Fraunces',serif; font-size:56px; color:var(--gold-light); border:1.5px solid rgba(217,184,114,0.5); width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
 .faculty-info{padding:22px;}
 .faculty-info h4{font-size:18px; margin-bottom:2px;}
@@ -786,7 +787,7 @@ footer ul li a:hover{color:var(--white);}
     <div class="section-head center">
       <div class="kicker">Meet your teachers</div>
       <h2>Faculty</h2>
-      <p>Placeholder faculty profiles — replace with your teachers' names, photos and credentials.</p>
+      <p>Meet the teachers who will guide you through every level.</p>
     </div>
     <div class="faculty-grid" id="facultyGrid"></div>
   </div>
@@ -1064,9 +1065,10 @@ function feeForLevel(base, code){
 }
 
 const faculty = [
-  {initials:"—", name:"Faculty Name", role:"Language Specialist — [Add Language]", qual:"[Add qualification]", exp:"[Add experience]"},
-  {initials:"—", name:"Faculty Name", role:"Language Specialist — [Add Language]", qual:"[Add qualification]", exp:"[Add experience]"},
-  {initials:"—", name:"Faculty Name", role:"Language Specialist — [Add Language]", qual:"[Add qualification]", exp:"[Add experience]"},
+  // Fill in name / role / qual / exp for each teacher. Empty qual/exp rows are hidden automatically.
+  {photo:"F1.png", name:"Shreya Singh", role:"French Instructor", qual:"EFLU UNIVERSITY", exp:"3 Years Of Teaching Experience"},
+  {photo:"F2.png", name:"Madhusudan Kumar", role:"Spanish Instructor", qual:"EFLU UNIVERSITY", exp:"5 Years Of Teaching Experience"},
+  {photo:"F3.png", name:"Dhaya Bose", role:"Japanese Instructor", qual:"EFLU UNIVERSITY", exp:"2 Years Of Teaching Experience"},
 ];
 
 const features = [
@@ -1238,12 +1240,12 @@ faculty.forEach(f=>{
   const el = document.createElement('div');
   el.className='faculty-card';
   el.innerHTML = `
-    <div class="faculty-photo"><div class="initial">${f.initials}</div></div>
+    <div class="faculty-photo">${f.photo ? `<img src="${f.photo}" alt="${f.name}" loading="lazy">` : `<div class="initial">${f.initials||'—'}</div>`}</div>
     <div class="faculty-info">
       <h4>${f.name}</h4>
       <div class="role">${f.role}</div>
-      <div class="fact"><span>Qualification</span><span>${f.qual}</span></div>
-      <div class="fact"><span>Experience</span><span>${f.exp}</span></div>
+      ${f.qual ? `<div class="fact"><span>Qualification</span><span>${f.qual}</span></div>` : ''}
+      ${f.exp ? `<div class="fact"><span>Experience</span><span>${f.exp}</span></div>` : ''}
     </div>
   `;
   facultyGrid.appendChild(el);
